@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'edteam.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': BASE_DIR / 'db_edteam',
+        'NAME': 'db_edteam',
         'USER': 'root',
         'PASSWORD':'',
         'HOST':'127.0.0.1',
