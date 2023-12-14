@@ -33,3 +33,20 @@ def cursosApi(request):
     }
         
     return JsonResponse(dataJson)
+
+
+def holamundo(request):
+    print(request.headers)
+    return HttpResponse('<h1>Hola mundo con Django 4.2</h1>',
+                        header={"Content-Type": "application/pdf",
+                                "Content-Disposition": "attachment; filename='foo.pdf'"
+                                }     
+    )
+#                       header={"Content-Type": "application/vnd.ms-excel",
+#                               "Content-Disposition": "attachment; filename='foo.xls'"
+#                               } 
+# 
+
+def saludo(request):
+    nombre = request.GET['nombre']
+    return HttpResponse("<center>" + nombre + "</center>")

@@ -18,18 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-
-from cursos.views import cursos,cursosApi
-
-def holamundo(request):
-    print(request.headers)
-    return HttpResponse('<h1>Hola mundo con Django 4.2</h1>',header={"Content-Type":"application/pdf",
-                                                                    "Content-Disposition":"attachment; filename='foo.pdf'"},)
+from cursos.views import cursos,cursosApi,holamundo,saludo
 
 
 urlpatterns = [   
             path('holamundo/',holamundo),
             path("cursos/",cursos),
-            path('cursos/api',cursosApi),
+            path('cursos/api/',cursosApi),
             path('admin/', admin.site.urls),
+            path('saludo/',saludo)
 ]

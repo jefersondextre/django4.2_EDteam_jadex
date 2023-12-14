@@ -28,5 +28,6 @@ class TblCurso(models.Model):
     class Meta:
         managed = True
         db_table = 'tbl_curso'
+        
     def __str__(self):
             return self.curso_titulo
