@@ -18,7 +18,9 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-from cursos.views import cursos,cursosApi,holamundo,saludo
+
+
+from cursos.views import cursos,cursosApi,holamundo,saludo,suma
 
 
 
@@ -28,5 +30,6 @@ urlpatterns = [
             path("cursos/",cursos),
             path('cursos/api/',cursosApi),
             path('admin/', admin.site.urls),
-            path('saludo/',saludo)
+            path('saludo/',saludo),
+            path('suma/<int:n1>/<int:n2>',suma)
 ]

@@ -50,3 +50,8 @@ def holamundo(request):
 def saludo(request):
     nombre = request.GET['nombre']
     return HttpResponse("<center>" + nombre + "</center>")
+
+
+def suma(request, n1 ,n2):
+    resultado = n1 + n2
+    return HttpResponse("El resultado es "+  str(resultado))
