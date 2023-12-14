@@ -21,6 +21,8 @@ from django.http import HttpResponse
 from cursos.views import cursos,cursosApi,holamundo,saludo
 
 
+
+
 urlpatterns = [   
             path('holamundo/',holamundo),
             path("cursos/",cursos),
