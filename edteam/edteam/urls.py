@@ -17,14 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
-from cursos.views import cursos
+
+
+from cursos.views import cursos,cursosApi
 
 def holamundo(request):
     print(request.headers)
-    return HttpResponse('<h1>Hola mundo con Django 4.2</h1>')
+    return HttpResponse('<h1>Hola mundo con Django 4.2</h1>',header={"Content-Type":"application/pdf",
+                                                                    "Content-Disposition":"attachment; filename='foo.pdf'"},)
 
 
-urlpatterns=[   path('holamundo/',holamundo),
-                path("cursos/",cursos ),
-                path('admin/', admin.site.urls),
+urlpatterns = [   
+            path('holamundo/',holamundo),
+            path("cursos/",cursos),
+            path('cursos/api',cursosApi),
+            path('admin/', admin.site.urls),
 ]
