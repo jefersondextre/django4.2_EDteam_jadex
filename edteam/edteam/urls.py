@@ -23,7 +23,7 @@ def holamundo(request):
     return HttpResponse('<h1>Hola mundo con Django 4.2</h1>')
 
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('holamundo/',holamundo),
+urlpatterns=[   path('holamundo/',holamundo),
+                path("cursos/" ),
+                path('admin/', admin.site.urls),
 ]
