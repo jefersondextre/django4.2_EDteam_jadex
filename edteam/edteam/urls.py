@@ -16,14 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
 from django.http import HttpResponse
+from cursos.views import cursos
 
 def holamundo(request):
+    print(request.headers)
     return HttpResponse('<h1>Hola mundo con Django 4.2</h1>')
 
 
 urlpatterns=[   path('holamundo/',holamundo),
-                path("cursos/" ),
+                path("cursos/",cursos ),
                 path('admin/', admin.site.urls),
 ]
