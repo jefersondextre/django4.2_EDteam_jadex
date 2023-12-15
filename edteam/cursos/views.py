@@ -37,16 +37,15 @@ def cursosApi(request):
 
 def holamundo(request):
     print(request.headers)
-    return HttpResponse('<h1>Hola mundo con Django 4.2</h1>',
-                        header={"Content-Type": "application/pdf",
-                                "Content-Disposition": "attachment; filename='foo.pdf'"
-                                }     
-    )
+    return HttpResponse('<h1>Hola mundo con Django 4.2</h1>')
+                        # header={"Content-Type": "application/pdf",
+                        #         "Content-Disposition": 'attachment; filename="foo.pdf"'
+                        #         } )
 #                       header={"Content-Type": "application/vnd.ms-excel",
 #                               "Content-Disposition": "attachment; filename='foo.xls'"
 #                               } 
 # 
-
+# GET
 def saludo(request):
     nombre = request.GET['nombre']
     return HttpResponse("<center>" + nombre + "</center>")
@@ -55,3 +54,26 @@ def saludo(request):
 def suma(request, n1 ,n2):
     resultado = n1 + n2
     return HttpResponse("El resultado es "+  str(resultado))
+
+def calculadora(request, n1,n2,ope):
+    if(ope == "suma"):
+        resultado = n1 + n2
+    elif(ope == "resta"):
+        resultado = n1 - n2
+    else:
+        resultado = 0
+    return HttpResponse('El resultado es '+ str(resultado))
+
+# POST
+def mostrarFormulario(request):
+    
+    if request.method == 'POST':
+        n1 = int(request.POST['n1'])
+        n2 = int(request.POST['n2'])
+        resultado = n1 + n2
+        
+    contexto = {
+        'resultado': resultado
+    }    
+        
+    return render(request,'formulario.html',contexto)

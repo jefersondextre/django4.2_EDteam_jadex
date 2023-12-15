@@ -20,7 +20,7 @@ from django.http import HttpResponse
 
 
 
-from cursos.views import cursos,cursosApi,holamundo,saludo,suma
+from cursos.views import cursos,cursosApi,holamundo,saludo,suma,calculadora,mostrarFormulario
 
 
 
@@ -31,5 +31,7 @@ urlpatterns = [
             path('cursos/api/',cursosApi),
             path('admin/', admin.site.urls),
             path('saludo/',saludo),
-            path('suma/<int:n1>/<int:n2>',suma)
+            path('suma/<int:n1>/<int:n2>',suma),
+            path('calculadora/<int:n1>/<int:n2>/<str:ope>',calculadora),
+            path('formulario/', mostrarFormulario)
 ]
